@@ -1,0 +1,43 @@
+{% extends 'shared/base.html' %}
+
+{% block meta %}
+    <title>brands</title>
+{% endblock meta %}
+
+{% block content %}
+    <div class="container">
+        <h1 class="text-center">Brands</h1>
+        <div class="d-flex">
+        <a href="{% url 'brand_create' %}" class=" ms-auto btn btn-primary">+ NewBrand</a>
+        </div>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Slug</th>
+                    <th>Description</th>
+                    <th>website</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in object_list %}
+                <tr>
+                    <td>{{ i.name }}</td>
+                    <td>{{ i.slug }}</td>
+                    <td>{{ i.description }}</td>
+                    <td>{{ i.website }}</td>
+                    <td>
+                        <a href="{% url 'brand_update' id=i.id %} " class="text-decoration-none">Edit</a>|
+                        <a href="{% url 'brand_delete' id=i.id %}" 
+                        class="text-danger text-decoration-none">Delete</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+    </div>
+    
+{% endblock content %}
+

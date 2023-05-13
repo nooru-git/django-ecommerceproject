@@ -1,0 +1,29 @@
+{% extends 'shared/base.html' %}
+
+
+{% block meta %}
+    <title>Product</title>
+{% endblock meta %}
+
+{% block content %}
+<div class="container">
+    <h1 class="text-center">product</h1>
+    <div class="my-5">
+        <form method="post" enctype="multipart/form-data">
+            {{ form.as_p }}
+            <div class="d-grid mt-2">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-success">save</button>
+            </div>
+       </form>
+    </div>
+</div>
+<!--<script>
+
+    Document.querySelectorAll('input').forEach((e)=>{
+        e.classList.add('form-control');
+    });
+
+</script>-->
+{% endblock content %}
+

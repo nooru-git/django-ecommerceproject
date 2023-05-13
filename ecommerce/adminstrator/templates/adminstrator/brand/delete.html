@@ -1,0 +1,31 @@
+{% extends 'shared/base.html' %}
+
+
+{% block meta %}
+    <title>Brand</title>
+{% endblock meta %}
+
+{% block content %}
+<div class="container">
+    <h1 class="text-center">Brand</h1>
+    <div class="my-5">
+        <form action="" method="POST">
+         
+            <p>Do you want to delete <b>{{object.name}}</b> ?</p>
+           
+            <div class="d-grid mt-3">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-success">DELETE</button>
+            </div>
+       </form>
+    </div>
+</div>
+<!--<script>
+
+    Document.querySelectorAll('input').forEach((e)=>{
+        e.classList.add('form-control');
+    });
+
+</script>-->
+{% endblock content %}
+

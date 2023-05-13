@@ -1,0 +1,25 @@
+{% extends 'shared/base.html' %}
+
+{% block meta %}
+    <title>login</title>
+{% endblock meta %}
+
+{% block content %}
+<div class="container">
+    <form method="post">
+        <h1 class="text-center">login</h1>
+        {{ form.as_p}}
+        <div class="d-grid">
+            {% csrf_token %}
+            <button class="btn btn-primary">login</button>
+        </div>
+    </form>
+</div>
+<script>
+    
+        document.querySelectorAll('input').forEach(function(e){
+            e.classList.add('form-control');
+        });
+
+</script>
+{% endblock content %}

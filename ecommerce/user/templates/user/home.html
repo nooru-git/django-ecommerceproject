@@ -1,0 +1,43 @@
+{% extends 'shared/base.html' %}
+
+{% block meta %}
+    <title>Home</title>
+{% endblock meta %}
+
+{% block content %}
+    <h1 class="text-center">Products</h1>
+    <div class="container">
+        <div class="row">
+            {% for product in object_list %}
+                <div class="col-md-3" class="product-card">
+                    <div class=" shadow">
+  
+                        <img src="{{ product.image.url }}" alt="card image cap" class="card-img-top" 
+                        height="180" >
+
+                        
+                        <div class="card-body">
+                            <a href="" class="product-title ">
+                                <h5 class="card-title">{{ product.name }}</h5>
+                            </a>
+                            <p class="card-text">{{ product.shot_description }}</p>
+                            <p class="card-text">
+                                <b class = "me-2">INR {{ product.price }} </b>&period;
+                                <span class = "ms-2 text-secondary">{{ product.category }} </span>   
+                            </p>
+
+                            <div class="d-flex">
+                                <a href=" " class="btn btn-primary ms-auto">
+                                    <ion-icon name="Cart"></ion-icon>
+                                    Add to Cart
+                                </a> 
+                            </div>
+    
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+        </div>
+    </div>
+{% endblock content %}
+
